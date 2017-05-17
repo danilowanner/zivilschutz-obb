@@ -1,0 +1,17 @@
+title: 'Zivilschutzkompanie Oberes Baselbiet'
+default_lang: de
+author:
+  name: 'Martin Buser'
+  email: martin.buser@zs-obb.ch
+taxonomies:
+  - category
+  - tag
+metadata:
+  description: 'Kursdaten, Standorte und weitere Informationen der Zivilschutzkompanie Oberes Baselbiet.'
+summary:
+  enabled: true
+  format: short
+  size: 300
+  delimiter: '==='
+blog:
+  route: /blog
