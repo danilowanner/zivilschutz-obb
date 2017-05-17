@@ -1,0 +1,14 @@
+{% set article_image = page.media.images|first %}
+
+<article class="pure-g blog-article">
+  {% if article_image %}
+    <section class="pure-u-1 pure-u-md-1-3 image article-image" style="background-image: url({{ article_image.url }})" />
+    </section>
+  {% endif %}
+  <section class="pure-u-1 pure-u-md-2-3 article-content">
+    <div class="article-date">
+      Veröffentlichung {{ page.date|nicetime(false) }}
+    </div>
+    {{ page.content }}
+  </section>
+</article>

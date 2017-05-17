@@ -1,0 +1,15 @@
+{% extends 'partials/base.html.twig' %}
+
+{% set email_link %}
+  {% if page.header.email %}
+    {% set email_parts = page.header.email|split('@') %}
+    <a class="obfuscate" href="mailto:{{email_parts[1]}}">{{email_parts[0]}}</a>
+  {% else %}
+    [Please provide an email variable in the page frontmatter.]
+  {% endif %}
+{% endset %}
+{% set email = {'[email]': email_link} %}
+
+{% block content %}
+  {{ page.content|replace(email) }}
+{% endblock %}

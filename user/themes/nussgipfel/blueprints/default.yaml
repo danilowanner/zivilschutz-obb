@@ -1,0 +1,19 @@
+'@extends':
+    type: default
+    context: blueprints://pages
+
+form:
+  fields:
+
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+
+          fields:
+            header.email:
+              type: text
+              style: vertical
+              label: E-Mail für [email] Shortcode

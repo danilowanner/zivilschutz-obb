@@ -1,0 +1,214 @@
+/* Core Stuff */
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.7;
+  color: #606d6e;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: #454B4D;
+  line-height: 130%;
+}
+a {
+  color: #f67030;
+  text-decoration: none;
+}
+a:hover {
+  color: #e04030;
+}
+pre {
+  background: #F0F0F0;
+  margin: 1rem 0;
+  border-radius: 2px;
+}
+blockquote {
+  border-left: 10px solid #eee;
+  margin: 0;
+  padding: 0 2rem;
+}
+
+/* Utility Classes */
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 70rem;
+}
+.padding {
+  padding: 3rem 2rem;
+}
+
+/* Header Styling */
+
+.header .pure-menu {
+  background-color: #f67030;
+  color: #eee;
+}
+.header a {
+  color: #fff;
+}
+.header .pure-menu .wrapper {
+  display: flex;
+  align-items: center;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+}
+
+.header .pure-menu-heading {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+.header .pure-menu-heading img.logo {
+  display: inline-block;
+  height: 3rem;
+}
+.header .pure-menu-heading .logo-title {
+  margin-left: 1rem;
+  max-width: 12em;
+
+  font-size: 1.2rem;
+  letter-spacing: 0.02em;
+  line-height: 115%;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+  /* Gradient Header */
+  .header .pure-menu.gradient {
+    background-color: transparent;
+    background: -moz-linear-gradient(top, rgba(246,112,48,1) 0%, rgba(246,112,48,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(246,112,48,1) 0%,rgba(246,112,48,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(246,112,48,1) 0%,rgba(246,112,48,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f67030', endColorstr='#00f67030',GradientType=0 ); /* IE6-9 */
+    color: #eee;
+  }
+  .header .pure-menu.gradient .wrapper {
+    padding-bottom: 2rem;
+  }
+
+/* Content Styling */
+
+article#main {
+  margin-top: 5rem; /* compensate fixed menu */
+}
+section.image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 66vw;
+  max-height: 70vh;
+}
+
+/* Blog */
+
+.blog-articles article.blog-article {
+  background-color: #e4e8ea;
+  margin: 1rem 0;
+}
+article.blog-article .article-image {
+  height: 1rem;
+  padding-bottom: 50%;
+}
+article.blog-article .article-content {
+  background-color: #f4f8fa; /* #5bc0de;*/
+  padding: 0.4rem 1.4rem;
+}
+article.blog-article .article-date {
+  background-color: #5bc0de;
+  color: #fff;
+  margin: -0.4rem -1.4rem 0 -1.4rem;
+  padding: 0.6rem 1.4rem;
+}
+
+/* Menu Settings */
+
+.main-nav {
+  margin-left: auto;
+}
+.main-nav .pure-menu-link {
+  border-radius: 2px;
+  border: 2px solid #fff;
+  color: #fff;
+  line-height: 120%;
+  padding: 0.6rem 1rem;
+}
+
+  /* Active dropdown nav item */
+  .main-nav a.pure-menu-link:hover {
+    background-color: #e04030;
+  }
+
+  /* Selected Dropdown nav item */
+  .main-nav .pure-menu-selected>a.pure-menu-link {
+    background-color: #fff;
+    border: 2px solid #fff;
+    color: #e04030;
+  }
+
+  /* Dropdown CSS */
+  .main-nav ul li {
+    position: relative;
+  }
+  .main-nav ul li ul {
+    position: absolute;
+    background-color: #1F8DD6;
+    min-width: 100%;
+    text-align: left;
+    z-index: 999;
+    display: none;
+  }
+  .main-nav ul li ul li {
+    display: block;
+  }
+
+  /* Dropdown CSS */
+  .main-nav ul li ul ul {
+    left: 100%;
+    top: 0;
+  }
+
+  /* Child Indicator */
+  .main-nav .has-children>a {
+    padding-right: 30px;
+  }
+  .main-nav .has-children>a:after {
+    font-family: FontAwesome;
+    content: '\f107';
+    position: absolute;
+    display: inline-block;
+    right: 8px;
+    top: 0;
+  }
+  .main-nav .has-children .has-children>a:after {
+    content: '\f105';
+  }
+
+  @media screen and (max-width: 35.5em) {
+    .header .pure-menu .wrapper {
+      /* menu under logo on small screens */
+      flex-wrap: wrap;
+    }
+    .main-nav {
+      margin: 1rem auto 0 auto;
+    }
+    article#main {
+      margin-top: 9rem; /* compensate fixed menu */
+    }
+  }
+
+/* Footer */
+
+.footer {
+  background-color: #e4e8ea;
+  text-align: center;
+}
+.footer a{
+  color: #28a1c5;
+  margin-left: 0.5em;
+}

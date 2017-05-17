@@ -1,0 +1,82 @@
+{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
+{% set header_image = page.media.images|first %}
+<!DOCTYPE html>
+<html lang="{{ grav.language.getActive ?: theme_config.default_lang }}">
+<head>
+{% block head %}
+  <meta charset="utf-8" />
+  <title>{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% include 'partials/metadata.html.twig' %}
+
+  <link rel="icon" type="image/png" href="{{ url('theme://images/logo.png') }}" />
+  <link rel="canonical" href="{{ page.url(true, true) }}" />
+
+  {% block stylesheets %}
+    {% do assets.addCss('https://unpkg.com/purecss@0.6.2/build/pure-min.css', 100) %}
+    {% do assets.addCss('https://unpkg.com/purecss@0.6.2/build/grids-responsive-min.css', 99) %}
+    {% do assets.addCss('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', 98) %}
+    {% do assets.addCss('https://fonts.googleapis.com/css?family=Roboto:400,700', 97) %}
+    {% do assets.addCss('theme://css/custom.css', 96) %}
+  {% endblock %}
+  {{ assets.css() }}
+
+  {% block javascripts %}
+    {% do assets.addJs('jquery', 100) %}
+    {% do assets.addJs('theme://js/nussgipfel.js', 99) %}
+  {% endblock %}
+  {{ assets.js() }}
+
+{% endblock head%}
+</head>
+<body id="top" class="{{ header_image ? "header-image" : "" }} {{ page.header.body_classes }}">
+
+{% block header %}
+  <div class="header">
+    <div class="pure-menu pure-menu-horizontal pure-menu-fixed">
+      <div class="wrapper padding">
+        <a class="pure-menu-heading" href="{{ base_url == '' ? '/' : base_url }}">
+          <img class="logo" src="{{ url("theme://images/logo.png") }}" />
+          <div class="logo-title">
+            {{ config.site.title }}
+          </div>
+        </a>
+        {% block header_navigation %}
+        <nav class="main-nav">
+          {% include 'partials/navigation.html.twig' %}
+        </nav>
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block body %}
+  <article id="main">
+    {% if header_image %}
+      <section class="image header-image" style="background-image: url({{ header_image.url }})" />
+      </section>
+    {% endif %}
+    <div class="wrapper padding">
+    {% block content %}{% endblock %}
+    </div>
+  </article>
+{% endblock %}
+
+{% block footer %}
+  <div class="footer">
+    <div class="wrapper padding">
+      © {{ "now"|date("Y") }} Zivilschutzkompanie Oberes Baselbiet
+      <a href="{{ page.find("/datenschutz").url }}">{{ page.find("/datenschutz").title }}</a>
+    </div>
+  </div>
+{% endblock %}
+
+{% block bottom %}
+  {{ assets.js('bottom') }}
+{% endblock %}
+
+</body>
+</html>
